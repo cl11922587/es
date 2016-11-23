@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name="f">
+  <pre>
+  for (var value of range(<input class="n" name="start" type="text"  value="0">, <input class="n" name="stop" type="text" value="3">)) {
+    alert("Ding! at floor #" + value);
+  }
+  </pre>
+    <input type="button" value="Run this code" onclick="go(); return false;">
+</form>
+<script>
+    // Return a new iterator that counts up from 'start' to 'stop'.
+    function* range(start, stop) {
+        for (var i = start; i < stop; i++)
+            yield i;
+    }
+
+    window.go = function go() {
+        var start = parseInt(document.forms.f.start.value);
+        var stop = parseInt(document.forms.f.stop.value);
+        for (var value of range(start, stop)) {
+            alert("Ding! at floor #" + value);
+        }
+    }
+
+</script>
+</body>
+</html>
